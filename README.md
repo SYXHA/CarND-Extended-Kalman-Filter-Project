@@ -6,14 +6,14 @@
 
 Self-Driving Car Engineer ND Program
 
-## Overview 
+## 1. Overview 
 In this project we utilize Kalman Filter (KF) and Extended Kalman Filter (EKF) to estimate the state of a moving object of interest with noisy LIDAR and RADAR measurements.
 
 <p align="center">
 <img src="./video/EKF.gif"]>
 </p>
 
-### Sensor Comparison
+## 2. Sensor Comparison
 ![alt text][image3]
 **LIDAR** (LIght Detection And Ranging):  
 linear measurement function -> KF 
@@ -21,17 +21,17 @@ linear measurement function -> KF
 **RADAR** (RAdio Detection And Ranging):  
  nonlinear measurement function -> EKF 
 
-### Sensor Fusion Process
+## 3. Sensor Fusion Process
 ![alt text][image2]
 
-### Kalman Filter Scheme
+### 3.1 Kalman Filter Scheme
 ![alt text][image1]
 **H** is the matrix that projects current state into the measurement space. For
 RADAR, **H** is nonlinear, we need to linearize it by Jacobian, which is EKF.
 
 If we were in an autonomous vehicle tracking a bicycle, pedestrian or another car, we would not be able to model the internal forces of the other object; hence, we do not know for certain what the other object's acceleration is. Instead, we will ignore the control input and represent acceleration as a random noise.
 
-### Setting Up
+## 4. Setting Up
 This project uses the Term 2 Simulator which can be downloaded [here.](https://github.com/udacity/self-driving-car-sim/releases)
 
 This repository includes two files that can be used to set up and install [uWebSocketIO](https://github.com/uWebSockets/uWebSockets) for either Linux or Mac systems. For windows you can use either Docker, VMware, or even [Windows 10 Bash on Ubuntu](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/) to install uWebSocketIO. Please see [this concept in the classroom](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-03afd8a601c8/modules/0949fca6-b379-42af-a919-ee50aa304e6a/lessons/f758c44c-5e40-4e01-93b5-1a82aa4e044f/concepts/16cf4a78-4fc7-49e1-8621-3450ca938b77) for the required version and installation scripts.
@@ -61,11 +61,11 @@ OUTPUT: values provided by the c++ program to the simulator
 
 ---
 
-## Other Important Dependencies
+## 5. Other Important Dependencies
 
 Refer [Udacity link's](https://github.com/udacity/CarND-Extended-Kalman-Filter-Project) **Other Important Dependencies** section.
 
-## Basic Build Instructions
+### 5.1 Basic Build Instructions
 
 After having the dependencies above met :
 
@@ -75,7 +75,7 @@ After having the dependencies above met :
    * On windows, you may need to run: `cmake .. -G "Unix Makefiles" && make`
 4. Run it: `./ExtendedKF `
 
-## Project Implementation details.
+### 5.2 Project Implementation details.
 
 - **src/main.cpp :** Read the sensor data line by line from the client and stores the data into a measurement object that it passes to the Kalman filter for processing. Also a ground truth list and an estimation list are used for tracking RMSE.  
 - **src/FusionEKF.cpp :** 
